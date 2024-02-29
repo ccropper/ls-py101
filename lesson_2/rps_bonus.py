@@ -19,7 +19,10 @@ def map_choice(player_input):
 
 
 def display_choices(choices_map):
-    choices = {(f"{choice} ({shorthand})") for shorthand, choice in choices_map.items()}
+    choices = {
+        (f"{choice} ({shorthand})")
+        for shorthand, choice in choices_map.items()
+    }
     prompt(", ".join(choices))
 
 
@@ -36,7 +39,7 @@ def determine_winner(player, computer):
         or (player == "lizard" and computer == "spock")
     ):
         return "player"
-    elif (
+    if (
         (player == "rock" and computer == "paper")
         or (player == "paper" and computer == "scissors")
         or (player == "scissors" and computer == "rock")
@@ -44,8 +47,8 @@ def determine_winner(player, computer):
         or (player == "lizard" and computer == "rock")
     ):
         return "computer"
-    else:
-        return "tie"
+
+    return "tie"
 
 
 def display_winner(winner):
@@ -85,7 +88,9 @@ while True:
         elif winner == "computer":
             computer_score += 1
 
-    prompt(f"You won {player_score} times. Computer won {computer_score} times.")
+    prompt(
+        f"You won {player_score} times. Computer won {computer_score} times."
+    )
 
     prompt("Do you want to play again (y/n)?")
     answer = input().lower()
