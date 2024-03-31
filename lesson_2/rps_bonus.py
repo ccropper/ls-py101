@@ -19,10 +19,7 @@ def map_choice(player_input):
 
 
 def display_choices(choices_map):
-    choices = {
-        (f"{choice} ({shorthand})")
-        for shorthand, choice in choices_map.items()
-    }
+    choices = {(f"{choice} ({shorthand})") for shorthand, choice in choices_map.items()}
     prompt(", ".join(choices))
 
 
@@ -88,9 +85,7 @@ while True:
         elif winner == "computer":
             computer_score += 1
 
-    prompt(
-        f"You won {player_score} times. Computer won {computer_score} times."
-    )
+    prompt(f"You won {player_score} times. Computer won {computer_score} times.")
 
     prompt("Do you want to play again (y/n)?")
     answer = input().lower()
